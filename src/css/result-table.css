@@ -1,0 +1,88 @@
+table {
+    padding: 0 100px 0 100px;
+    
+}
+
+.first-column-data {
+    width: 20px;
+}
+
+.second-column-data {
+    width: 200px;
+}
+
+.third-column-data {
+    width: 600px;
+}
+
+.table-author {
+    background-color: rgb(132, 42, 42);
+    padding: 10px;
+    font-size: 20px;
+    color: white;  
+}
+
+th, td  {
+    font-size: 15px;
+    padding: 5px 0 5px 15px;
+}
+
+.table-title {
+    background-color: rgb(132, 42, 42);
+    padding-left: 10px;
+    font-size: 20px;
+    color: white;   
+}
+
+.progressive-number {
+    background-color: rgb(132, 42, 42);
+    color: white;
+}
+
+.odd {
+    background-color: rgba(198, 111, 12, 0.1);
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+#table-container {  
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#table-pages {
+    margin-top: 30px;
+}
+
+.page-back {
+    background-color: rgba(132, 42, 42, 0.5);
+    width: 20px;
+    height: 20px;
+    font-weight: 900;
+    
+    margin-right: 20px;
+
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+}
+
+.page-back:hover {
+    cursor: pointer;
+}
+
+.page-forward {
+    background-color: rgba(132, 42, 42, 0.5);
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid black;
+    font-weight: 900;
+    margin-left: 20px;
+}
+
+.page-forward:hover {
+    cursor: pointer;
+}
