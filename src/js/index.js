@@ -24,6 +24,7 @@ let imagesPath = [
 ];
 imageLoader(imagesPath);
 
+// Definizione dell'array di oggetti "sentence" e relativo caricamento in pagina chiamando la funzione relativa nel modulo sentences_loader.js
 const sentences = [
     {phrase: 'A reader lives a thousand lives before he dies. The man who never reads lives only one.', author: 'George R.R. Martin'},
     {phrase: `The more that you read, the more things you will know. The more that you learn, the more places you'll go.`, author: 'Dr. Seuss'},
@@ -36,16 +37,19 @@ const sentences = [
 ];
 sentencesLoader(sentences);
 
+// Selezione elementi textbox e button di avvio ricerca 
 const textBox = document.getElementById('text-box');
 const searchButton = document.getElementById('search-button');
 
+// Listener su textbox che fa sparire la scritta di default non appena la textbox viene selezionata
 textBox.addEventListener('click', () => {
     if (textBox.value === 'Search category') {textBox.value = ''}
 });
 
+// Listener su bottone di ricerca che avvia la ricerca chiamando la funzione relativa nel modulo fetching.js
 searchButton.addEventListener('click', () => {
     if (textBox.value != '') {
-        dataFetch(textBox.value, 0);
+        dataFetch(textBox.value, 0, 0, [], 0);
     }
 });
 
