@@ -1,6 +1,5 @@
 table {
     padding: 0 100px 0 100px;
-    
 }
 
 .first-column-data {
@@ -8,11 +7,12 @@ table {
 }
 
 .second-column-data {
-    width: 200px;
+    width: 250px;
 }
 
 .third-column-data {
-    width: 600px;
+    width: 700px;
+    
 }
 
 .table-author {
@@ -25,6 +25,7 @@ table {
 th, td  {
     font-size: 15px;
     padding: 5px 0 5px 15px;
+    height: 20px;
 }
 
 .table-title {

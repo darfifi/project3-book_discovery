@@ -20,27 +20,27 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
             
             // Popolamento array books con dataset libri
             for (const elem of obj.works) {
-                if (elem.authors.length = 1) {
-                    book = {
-                        itemNumber: progressiveNumber + 160 * dataSet,
-                        author: elem.authors[0].name,
-                        title: elem.title
-                    };
-                    books.push(book);
-                    progressiveNumber += 1;
-                } else if (elem.authors.length > 1) {
-                    for (let i = 0; i < (elem.authors.length - 1); i++) {
-                        const authors = [];
-                        authors.push(elem.authors[i].name);
+                    if (elem.authors.length = 1) {
                         book = {
                             itemNumber: progressiveNumber + 160 * dataSet,
-                            author: authors,
+                            author: elem.authors[0]?.name,
                             title: elem.title
-                        }; 
+                        };
                         books.push(book);
                         progressiveNumber += 1;
-                    }
-                }
+                    } else if (elem.authors.length > 1) {
+                        for (let i = 0; i < (elem.authors.length - 1); i++) {
+                            const authors = [];
+                            authors.push(elem.authors[i].name);
+                            book = {
+                                itemNumber: progressiveNumber + 160 * dataSet,
+                                author: authors,
+                                title: elem.title
+                            }; 
+                            books.push(book);
+                            progressiveNumber += 1;
+                        }
+                    } 
             }
 
             // Impostazione del dataset per gruppo dati successivo 

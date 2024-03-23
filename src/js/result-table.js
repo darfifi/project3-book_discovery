@@ -66,10 +66,11 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
     let pagesContainer = document.getElementById('table-pages');
 
     pagesContainer.innerHTML = `
-        <span class="page-back">&lt   </span>` + 'Page   ' + `<span id = "initial-page" class="initial-page">${actualTablePage}</span>` + `   of    ${totalPages}   ` + `<span id="page-forward" class="page-forward">   &gt</span>`;
+        <span id="page-back" class="page-back">&lt   </span>` + 'Page   ' + `<span id = "initial-page" class="initial-page">${actualTablePage}</span>` + `   of    ${totalPages}   ` + `<span id="page-forward" class="page-forward">   &gt</span>`;
 
     // Inserimento listener per cambio pagina
     const forwardButton = document.getElementById('page-forward');
+    const backButton = document.getElementById('page-back');
         
     forwardButton.addEventListener('click', () => {
         let tableIndex = +document.getElementById('first-column-data16').innerText;
@@ -80,11 +81,21 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
               pageCounter.innerText = `${tableIndex/16 + 1}`;
         } else {
             startIndex +=16;
-            dataFetch(category, tableIndex, (tableIndex/160), books, startIndex);
+            if (books.length > startIndex) {
+                createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex);
+            } else {
+                dataFetch(category, tableIndex, (tableIndex/160), books, startIndex);
+            }
         }
+    }); 
+
+    backButton.addEventListener('click', () => {
+        let tableIndex = +document.getElementById('first-column-data16').innerText;
+        let index = tableIndex - 32;
+        createTable(category, 'table-container', offset, dataSet, books, worksNumber, index);
     });
 
 };
-    
+
 
 export {createTable};
