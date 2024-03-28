@@ -1,13 +1,13 @@
 
-import { dataFetch } from "./fetching";
+import { dataFetch, fetchingDescription } from "./fetching";
 
 function createTable(category, container, offset, dataSet, books, worksNumber, startIndex) {
 
-    // Determinazione di numero di pagine totali per scorrere l'intera ricerca
+    // Determination of total number of pages
     let totalPages = Math.floor(worksNumber/16);
     if (worksNumber % 16) {totalPages +=1};
 
-    // Creazione testa tabella
+    // Table creation
     const tableContainer = document.getElementById(container);
     tableContainer.innerHTML = `
             <table id="table">
@@ -21,7 +21,7 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
             </table>
     `;
 
-    // Creazione del body della tabella
+    // Body table creation
     let table = document.getElementById('table');
     let body = document.createElement('tbody');
     let rowElements;
@@ -31,7 +31,7 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
     for (let i = startIndex; i < (startIndex + 16); i++) {
         let newRow = document.createElement('tr');
         
-        // Distinzione tra righe dispari e pari per differenziare colore di sfondo righe in maniera alternata
+        // Alternate background color definition on table rows
         if ((i % 2) == 0 | i == 0) {
             rowElements = `
                 <td id = "first-column-data${rowNumber}" class="first-column-data">${books[i].itemNumber}</td>
@@ -49,9 +49,9 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
         body.appendChild(newRow);
         rowNumber +=1;   
     }
-    table.appendChild(body); // Inserimento elemento tbody dopo creazione tabella  
+    table.appendChild(body); // Insertion of tbody element after table creation 
     
-    // Oscuramento inputbox e tasto avvio ricerca
+    // inputbox and search button hiding
     document.getElementById('text-box').style.display = 'none';
     document.getElementById('search-button').style.display = 'none';
 
@@ -68,10 +68,11 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
     pagesContainer.innerHTML = `
         <span id="page-back" class="page-back">&lt   </span>` + 'Page   ' + `<span id = "initial-page" class="initial-page">${actualTablePage}</span>` + `   of    ${totalPages}   ` + `<span id="page-forward" class="page-forward">   &gt</span>`;
 
-    // Inserimento listener per cambio pagina
+    // Listener variables definition
     const forwardButton = document.getElementById('page-forward');
     const backButton = document.getElementById('page-back');
         
+    // Listener on forward button
     forwardButton.addEventListener('click', () => {
         let tableIndex = +document.getElementById('first-column-data16').innerText;
         if ((tableIndex % 160) != 0) {
@@ -81,7 +82,7 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
               pageCounter.innerText = `${tableIndex/16 + 1}`;
         } else {
             startIndex +=16;
-            if (books.length > startIndex) {
+            if (books.length > startIndex) { // Verify if data already exist in the array 
                 createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex);
             } else {
                 dataFetch(category, tableIndex, (tableIndex/160), books, startIndex);
@@ -89,13 +90,28 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
         }
     }); 
 
+    // Listener on back button 
     backButton.addEventListener('click', () => {
         let tableIndex = +document.getElementById('first-column-data16').innerText;
         let index = tableIndex - 32;
         createTable(category, 'table-container', offset, dataSet, books, worksNumber, index);
     });
 
-};
 
+    // Listener on book selection
+    table.addEventListener('click', (event) => {
+        // data collecting on clicked row
+        let clickedElement = event.target;
+        let parent = clickedElement.parentNode;
+        let bookProgressiveNumber = +parent.firstElementChild.innerText-1;
+        let choosenBook = books[bookProgressiveNumber];
+        let key = choosenBook.key;
+        
+        // call fetching description
+        fetchingDescription(choosenBook);
+    });
+
+
+};
 
 export {createTable};

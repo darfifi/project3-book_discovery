@@ -1,6 +1,7 @@
 
 import {reduceImage} from "./images_loader.js";
 import {createTable} from "./result-table.js";
+import { bookDetails } from "./book-details";
 
 
 
@@ -24,7 +25,8 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
                         book = {
                             itemNumber: progressiveNumber + 160 * dataSet,
                             author: elem.authors[0]?.name,
-                            title: elem.title
+                            title: elem.title,
+                            key: elem.key
                         };
                         books.push(book);
                         progressiveNumber += 1;
@@ -35,7 +37,8 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
                             book = {
                                 itemNumber: progressiveNumber + 160 * dataSet,
                                 author: authors,
-                                title: elem.title
+                                title: elem.title,
+                                key: elem.key
                             }; 
                             books.push(book);
                             progressiveNumber += 1;
@@ -51,13 +54,30 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
             reduceImage('image-container');
             createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex);
         })
-        /*
-        .then(key => fetch(`http://openlibrary.org${key}.json`))
-        .then(risposta => risposta.json())
-        .then(oggetto => alert(oggetto.description)); */
 }
 
-export {dataFetch};
+function fetchingDescription (choosenBook) {
+    const link = `https://openlibrary.org`+ choosenBook.key + '.json';
+    fetch(link)
+        .then(response => response.json())
+        .then(obj => {
+        let bookDescription;
+        if (!obj.description) {
+            bookDescription = 'Soory, at the moment no description available for this work!';
+            bookDetails(choosenBook, bookDescription);
+        } else {
+            if (typeof(obj.description) == "object") {
+                bookDescription = obj.description.value;
+            } else {
+                bookDescription = obj.description;
+            }
+        }
+            bookDetails(choosenBook, bookDescription);
+        }
+        )};
+
+
+export {dataFetch, fetchingDescription};
 
 
 

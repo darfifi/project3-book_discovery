@@ -6,6 +6,7 @@ import myPicture from '../images/library.js';
 import '../images/books-stack.png';
 import '../css/style1.css';
 import '../css/result-table.css';
+import '../css/modal-window.css';
 
 
 // Immagazzinamento della struttura principale HTML
@@ -15,6 +16,7 @@ const buttontwo = document.getElementById('buttontwo');
 buttontwo.addEventListener('click', () => {
     document.documentElement.innerHTML = mainpage;
 })
+
 
 const immagine = myPicture();
 let index = immagine.lastIndexOf('/');

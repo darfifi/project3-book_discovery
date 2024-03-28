@@ -6,6 +6,7 @@
     <title>The Book Discovery</title>
     <link rel="stylesheet" href="./css/style1.css">
     <link rel="stylesheet" href="./css/result-table.css">
+    <link rel="stylesheet" href="./css/modal-window.css">
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,10 +38,7 @@
     <div class="search-field-container">
         <input type="text" name="category" id="text-box" class="search-field" value="Search category">
         <button type="button" class="button" id="search-button">Avvia</button>
-
         <button type="button" class="buttontwo" id="buttontwo">Ricarica</button>
-
-
     </div>
     
     <div id="table-container">
@@ -49,5 +47,26 @@
     <div id="table-pages">
         <!-- Here will be inserted the table pages -->
     </div>
+
+    <div id="modal-window" class="modal-window">
+        <div class="result-window">
+            <div class="upper-container">
+                <h2 id="author" class="author"> <!-- Here will be inserted author's name --> </h2>
+                <h2 id="title" class="title"> <!-- Here will be inserted book's title --> </h2>
+            </div>
+            <br>
+            <h4 class="description-text">-- Description --</h4>
+            <br>
+            <div class="description-super-container">
+                <div id="description-container" class="description-container"> <!-- Here will be inserted book's description --> </div>
+                <div class="sfumato"></div>
+            </div>
+            <div class="button-container">
+                <button id="closing-button" class="closing-button">Close</button>
+            </div>
+            
+        </div>
+    </div>
+
 </body>
 </html>
