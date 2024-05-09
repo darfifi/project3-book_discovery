@@ -1,4 +1,4 @@
-.modal-window {
+.modal-window-container {
     display: none;
     position: fixed;
     top: 0;
@@ -17,68 +17,59 @@
     box-shadow: 3px 3px 15px black;
 }
 
-.author, .title {
+.author-name, .title {
     text-align: left;
     padding: 50px auto;
     margin: 5px;
     color: white;
 }
 
-.author {
+.author-name {
     font-size: 20px;
 }
 
 .result-window {
-    width: 40%;
+    max-width: 40%;
     margin: 150px auto;
-    padding: 45px;
+    padding: 35px;
     background-color: white;
-    border: 3px solid rgba(198, 111, 12);
-    box-shadow: 25px 25px 20px black;
+    border: 1px solid rgba(198, 111, 12);
+    box-shadow: 10px 10px 30px rgb(0, 0, 0);
     position: relative;
 }
 
 .description-super-container {
-    height: 200px;
-    overflow-y: scroll;
-    position: relative;
+    max-height: 200px;
+    width: 100%;
+    overflow-y: scroll; 
 }
+
 
 .description-container {
     text-align: justify;
     line-height: 23px;
-    /*margin: 0;*/
-    padding-bottom: 40px;
-    overflow-y: scroll;
-    
-    
-    /*overflow-y: scroll;
-    height: 150px;
-    border: 1px solid rgb(213, 213, 213);
-    padding: 5px 12px;
-    scrollbar-width: thin;
-    scrollbar-color: #888888 #f0f0f0;*/
+    padding-bottom: 45px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .sfumato {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 20px;
+    height: 50px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-    z-index: 1;
+    z-index: 100;
+    width: 100%;
+    transform: translate(0, -50px);
 }
 
 .description-text {
+    padding-left: 20px;
     font-size: 20px;
     margin-top: 35px;
     margin-bottom: 0;
 }
 
-
 .button-container {
-    margin-top: 30px;
+    margin-top: 0;
     text-align: right;
 }
 
@@ -96,4 +87,24 @@
     background-color: rgba(198, 111, 12);
     color: black;
     transition: all 0.5s;
+}
+
+.error-button {
+    font-size: 25px;
+    font-weight: 900;
+    color: orange;
+    cursor: pointer;
+}
+
+
+.message {
+    max-width: 40%;
+    padding: 25px;
+    margin: 200px auto;
+    background-color: white;
+    border: 1px solid rgba(198, 111, 12);
+    font-size: 20px;
+    letter-spacing: 1px;
+    justify-content: space-between;
+    align-items: center;
 }

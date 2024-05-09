@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes mymove {
+    from {scale: 1.0}
+    to {scale: 1.1} 
+}
+
+@keyframes reduce {
+    from { height: 600px; }
+    to { height: 0px; }
+}
+
+@keyframes expand {
+    from {height: 0;}
+    to {height: 300px;}
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+.top-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 30px;
+    
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+}
+
+.general-container {
+    width: 100%;
+}
+
+.banner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.banner {
+    width: 100%;
+    font-size: 40px;
+    font-weight: 600;
+    color: rgb(198, 111, 12);
+    letter-spacing: 1px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.info {
+    position: relative;
+    margin-right: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background-color: aquamarine;
+    color: bisque;
+    border-radius: 20px;
+}
+
+.info-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(198, 111, 12, 0.7);
+    border-radius: 20px;
+}
+
+.text-container {
+    padding-left: 10px;
+    padding-right: 30px;
+    width: 90%;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.image-container {
+    overflow: hidden;
+    width: 100%;
+    max-height: 600px;
+    margin-top: 25px;
+}
+
+.main-image {
+    width: 100%;
+    animation: mymove 8s linear 0s 1 normal forwards;
+}
+
+.info-container {
+    display: none;
+    border: 1px solid rgb(198, 111, 12);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 30px;
+    width: 350px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(246, 228, 173, 0.8);
+    color: rgb(198, 111, 12);
+    overflow: hidden;
+}
+
+.info-container-row {
+    text-align: end;
+}
+
+.info-container-first-row {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.info-container-text {
+    text-align: justify;
+    font-size: 17px;
+}
+
+.search-field-container {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search-field {
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+    border: 1px solid rgb(198, 111, 12);
+    margin-right: 30px;
+    width: 40%;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(198, 111, 12);
+    background-color: white;
+}
+
+.search-field:hover {
+    background-color: rgba(198, 111, 12, 0.1);
+}
+
+.search-field:focus {
+    outline: 2px solid rgba(198, 111, 12);
+}
+
+.search-button {
+    background-color: white;
+    border: 1px solid  rgba(198, 111, 12);
+    width: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 8px black;
+}
+
+.search-button:hover {
+    cursor: pointer;
+    background-color: rgba(198, 111, 12, 0.1);
+}
+
+.search-button:active {
+    box-shadow: 1px 1px 2px black;
+}
+
+.search-button img {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+
+
+
+
+.back-button-container {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.text {
+    color: black;
+    font-size: 23px;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 10px;
+}
+
+.author {
+    color: black;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+

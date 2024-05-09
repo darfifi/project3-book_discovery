@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Book Discovery</title>
-    <link rel="stylesheet" href="./css/style1.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/index-other-sizes.css">
     <link rel="stylesheet" href="./css/result-table.css">
     <link rel="stylesheet" href="./css/modal-window.css">
+    <link rel="stylesheet" href="./css/modal-window-other-sizes.css">
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,55 +20,81 @@
             <img src="./images/logo.png" alt="" class="logo">
         </div>
         <div class="general-container">
-            <div class="banner-container">
+            <div id="banner-container" class="banner-container">
                 <div class="banner">THE BOOK DISCOVERY</div>
-                <div class="info">INFO</div>
+                <div id="info" class="info">
+                    <img id="info-icon" class="info-icon" src="images/info.jpeg" alt="">
+                    <div class="info-cover"></div>
+                </div>
             </div>
-                
-            <div class="image-book-container">
-                <div id="text-container" class="text-container"> </div>
-                <img src="./images/books-stack.png" alt="" class="image-book">
+            <div class="sentences-box">
+                <div id="text-container" class="text-container">
+                    <!-- Here will be loaded sentences from famous authors -->
+                </div>
             </div>
         </div>
     </div>
-    
-    
+        
     <div class="image-container" id="image-container">
         <!-- Here will be inserted the main image -->
+        <div id="info-container" class="info-container"> 
+            <div class="info-container-first-row info-container-row">The book Discovery</div>  
+            <div class="info-container-second-row info-container-row"><em>by Dario Fresi</em></div>   
+            <div class="info-container-third-row info-container-row">Full Stack Web Developer</div>  
+            <br><br>
+            <div class="info-container-text">
+                Choose your category and search for all books under that!!
+                <br>
+                The application allows you to click on a single row of the listed books under the choosen category in order to
+                find out the relative description. 
+            </div>
+            <br>
+            <div class="info-container-text">
+                Please note that <em>The book discovery</em> downloads information about books and categories from a third party website so, 
+                we are not responsible of missing or incorrect information.
+            </div>
+        </div>
     </div>
-    
-    <div class="search-field-container">
+        
+    <div id="search-field-container" class="search-field-container">
         <input type="text" name="category" id="text-box" class="search-field" value="Search category">
-        <button type="button" class="button" id="search-button">Avvia</button>
-        <button type="button" class="buttontwo" id="buttontwo">Ricarica</button>
+        <div class="search-button" id="search-button"><img src="images/lens.png" alt=""></div>
     </div>
-    
+
+    <div id="table-pages-change-container" class="table-pages-change-container">
+        <div id="back-button-container" class="back-button-container">
+            <button type="button" class="back-button" id="buttontwo">New search</button>
+        </div>
+        <div id="table-pages">
+            <!-- Here will be inserted the table pages -->
+        </div> 
+    </div>
+        
+        
     <div id="table-container">
         <!-- Here will be inserted the table with results -->
     </div>
-    <div id="table-pages">
-        <!-- Here will be inserted the table pages -->
-    </div>
-
-    <div id="modal-window" class="modal-window">
-        <div class="result-window">
+       
+    <div id="modal-window-container" class="modal-window-container">
+        <div id="error-message" class="error-message message" style="display: none;"></div>
+        <div id="searching-message-before" class="searching-message message" style="display: none;">Searching results<span id="point1-before">.</span><span id="point2-before">.</span><span id="point3-before">.</span></div>
+        <div id="searching-message-after" class="searching-message message" style="display: none;">Loading more results<span id="point1-after">.</span><span id="point2-after">.</span><span id="point3-after">.</span></div>
+        <div id="result-window" class="result-window" style="display: none;">
             <div class="upper-container">
-                <h2 id="author" class="author"> <!-- Here will be inserted author's name --> </h2>
+                <h2 id="author" class="author-name"> <!-- Here will be inserted author's name --> </h2>
                 <h2 id="title" class="title"> <!-- Here will be inserted book's title --> </h2>
             </div>
             <br>
             <h4 class="description-text">-- Description --</h4>
             <br>
-            <div class="description-super-container">
+            <div id="description-super-container" class="description-super-container">
                 <div id="description-container" class="description-container"> <!-- Here will be inserted book's description --> </div>
-                <div class="sfumato"></div>
             </div>
+            <div id="sfumato" class="sfumato"></div>
             <div class="button-container">
                 <button id="closing-button" class="closing-button">Close</button>
             </div>
-            
         </div>
     </div>
-
 </body>
 </html>

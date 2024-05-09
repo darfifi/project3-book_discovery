@@ -1,0 +1,80 @@
+@media screen and (min-width: 650px) and (max-width: 900px) {
+    .banner {
+        font-size: 25px;
+    }
+
+    .logo {
+        width: 130px;
+        height: 130px;
+    }
+
+    .info {
+        font-size: 15px;
+        padding-right: 60px;
+    }
+
+}
+
+@media screen and (min-width: 300px) and (max-width: 649px) {
+    .banner {
+        font-size: 15px;
+        padding-left: 5px;
+        padding-bottom: 3px;
+    }
+
+    .logo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .info {
+        margin-right: 0;
+    }
+
+    .info-icon {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .info-cover {
+        width: 25px;
+        height: 25px;
+    }
+
+
+    .info {
+        font-size: 10px;
+        padding-right: 38px;
+    }
+
+    .top-container {
+        padding-left: 20px;
+    }
+
+
+    .text {
+        font-size: 13px;
+    }
+
+    .text-container {
+        padding-left: 1px;
+        
+        width: 85%;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .image-container {
+        margin-top: 180px;
+    }
+
+    .search-field {
+        height: 20px;
+    }
+
+    .button {
+        padding: 0 20px 0 20px;
+    }
+
+
+}

@@ -4,25 +4,20 @@ import {sentencesLoader} from "./sentences_loader.js";
 import {dataFetch} from "./fetching.js";
 import myPicture from '../images/library.js';
 import '../images/books-stack.png';
-import '../css/style1.css';
+import '../css/index.css';
+import '../css/index-other-sizes.css';
 import '../css/result-table.css';
 import '../css/modal-window.css';
+import '../css/modal-window-other-sizes.css';
 
 
-// Immagazzinamento della struttura principale HTML
-const mainpage = document.documentElement.outerHTML;
+const mainpage = document.body.innerHTML; // Saving the original HTML structure
 
-const buttontwo = document.getElementById('buttontwo');
-buttontwo.addEventListener('click', () => {
-    document.documentElement.innerHTML = mainpage;
-})
-
-
-const immagine = myPicture();
-let index = immagine.lastIndexOf('/');
-const percorso = immagine.substring(index);
+const image = myPicture();
+let index = image.lastIndexOf('/');
+const percorso = image.substring(index);
 let imagesPath = [
-    '.' + percorso    
+    `.${percorso}`    
 ];
 imageLoader(imagesPath);
 
@@ -46,17 +41,45 @@ const searchButton = document.getElementById('search-button');
 // Listener su textbox che fa sparire la scritta di default non appena la textbox viene selezionata
 textBox.addEventListener('click', () => {
     if (textBox.value === 'Search category') {textBox.value = ''}
+    
 });
 
-// Listener su bottone di ricerca che avvia la ricerca chiamando la funzione relativa nel modulo fetching.js
+// Listener on search button to start fetching.js
 searchButton.addEventListener('click', () => {
-    if (textBox.value != '') {
-        dataFetch(textBox.value, 0, 0, [], 0);
+    let searchParameter = textBox.value;
+    if (searchParameter != '') {
+        searchParameter = searchParameter.toLowerCase(); // To prevent errors in case the user writes search words with one or more capital letters 
+        dataFetch(searchParameter, 0, 0, [], 0);
     }
 });
 
+// Listeners on INFO button
+
+const infoButton = document.getElementById('info');
+const infoContainer = document.getElementById('info-container');
+
+infoButton.addEventListener('mouseover', () => {
+
+    // Coordinates of the left upper corner of info button
+    const infoButtonDimension = infoButton.getBoundingClientRect();
+    const xInfoButtonUpperLeft = infoButtonDimension.left;
+    const yInfoButtonUpperLeft = infoButtonDimension.top;
+
+    // Positioning of info window
+    infoContainer.style.display = 'block';
+
+    infoContainer.style.animation = "expand 0.3s linear 0s 1 normal forwards";
+    
+    infoContainer.style.top = yInfoButtonUpperLeft + infoButton.clientHeight - 3 + 'px';
+    infoContainer.style.left = xInfoButtonUpperLeft - infoContainer.clientWidth +infoButton.clientWidth/2 + 'px'; 
+})
 
 
+infoButton.addEventListener('mouseout', () => {
+    document.getElementById('info-container').style.display = 'none';
+})
+
+export {mainpage};
 
 
 

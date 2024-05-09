@@ -1,16 +1,13 @@
-
-
 let i = 0;
 
-function sentencesLoader(sentences, timing = 2000) {
+function sentencesLoader(sentences, timing = 5000) {
     /* 
-        La funzione accetta un parametro sentences costituito da un array di oggetti "sentence" conteneti due proprietà: 
-        phrase ed author ed un parametro di timing (default a 9000 ms) che decide dopo quanto tempo verrà cambiata la frase 
-        visibile a schermo.
+        The function accepts a parameter sentences that is an array of objects "sentence" with two properties: phrase and author. 
+        The timing parameter decides how much time after the phrase visible on the screen will be changed.
     */  
     const container = document.getElementById('text-container');
     const textElement = document.createElement('p');
-    textElement.innerHTML = sentences[i].phrase + `<br>` + `<spam class="author">${sentences[i].author}</spam>`;
+    textElement.innerHTML = sentences[i].phrase + `<br>` + `<span class="author">${sentences[i].author}</span>`;
     textElement.className = 'text';
 
     container.appendChild(textElement);

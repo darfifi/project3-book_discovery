@@ -2,25 +2,54 @@
 import {reduceImage} from "./images_loader.js";
 import {createTable} from "./result-table.js";
 import { bookDetails } from "./book-details";
-
-
+import {loadingEffect} from "./loading-effect.js";
+import {MissingCategory, ValidationError, showError, closeError} from "./errors.js";
 
 function dataFetch(category, offset, dataSet, books, startIndex) {
-    // Definizione del link per il fetch dei dati dal server
-    const link = `http://openlibrary.org/subjects/`+ category + '.json' + `?offset=${offset}` + '&' + 'limit=160'; 
-    fetch(link)
-        .then(response => response.json())
-        .then(obj => {
+    
+    // Elements preparation
+    let container = document.getElementById('modal-window-container');
+    let searchingMessageBefore = document.getElementById('searching-message-before');
+    let searchingMessageAfter = document.getElementById('searching-message-after');
+    let errorMessage = document.getElementById('error-message');
+
+    // Errors management
+    try {
+        if (category === 'Search category') throw new ValidationError('You have to fill in with a valid category!');
+        if (category.includes(' ')) throw new ValidationError('No spaces admitted in the search category!');
+        if (category === ' ') throw new MissingCategory('No category specified!');
+    
+        // Search link creation
+        const link = `http://openlibrary.org/subjects/`+ category + '.json' + `?offset=${offset}` + '&' + 'limit=160';
+
+        container.style.display = 'block';
+        if (offset == 0) {
+            searchingMessageBefore.style.display = 'block';
+            loadingEffect('before');
+        } else {
+            searchingMessageAfter.style.display = 'block';
+            loadingEffect('after');
+        }
+
+        fetch(link)
+            .then(response => {
+                if (!response.ok) {throw new Error('Error on request: ' + error.message)}
+                return response.json();
+            })
+            .then(obj => {
+                container.style.display = 'none';
+                searchingMessageBefore.style.display = 'none';
+                searchingMessageAfter.style.display = 'none';
+            try {
+                let worksNumber = obj.work_count; // Total number of books under choosen category
+                if (worksNumber == 0) throw new MissingCategory('No works available for this category!');
+                
+                // Variables inizialization
+                let book = {}; // A specific book object
+                let progressiveNumber = 1;
             
-            // Recupero dato relativo al numero di libri sotto la categoria scelta
-            let worksNumber = obj.work_count;
-            
-            // Inizializzazione variabili
-            let book = {};
-            let progressiveNumber = 1;
-            
-            // Popolamento array books con dataset libri
-            for (const elem of obj.works) {
+                // Filling array books with dataset books
+                for (const elem of obj.works) {
                     if (elem.authors.length = 1) {
                         book = {
                             itemNumber: progressiveNumber + 160 * dataSet,
@@ -44,19 +73,50 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
                             progressiveNumber += 1;
                         }
                     } 
+                }
+
+                // Setting dataset for the next group of data 
+                dataSet = books.length / 160
+                if (dataSet > (worksNumber / 160)) {dataSet += 1};
+
+
+
+                // RIDONDANTE CON RIGA 45 - VERIFICA if (books.length == 0) throw new ValidationError('No books available under this category!');
+
+
+
+                
+                // Table visulization preparation
+                reduceImage('image-container');
+                createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex);
+
+            } catch(error) {
+                container.style.display = 'block';
+                errorMessage.innerHTML = showError(error.name, error.message);
+                closeError(container, errorMessage);
+                errorMessage.style.display = 'flex';   
             }
-
-            // Impostazione del dataset per gruppo dati successivo 
-            dataSet = books.length / 160
-            if (dataSet > (worksNumber / 160)) {dataSet += 1};
-
-            // Preparazione alla visualizzazione della tabella
-            reduceImage('image-container');
-            createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex);
         })
+        
+        .catch((error) => {  
+            searchingMessageBefore.style.display = 'none';
+            searchingMessageAfter.style.display = 'none';
+            container.style.display = 'block';
+
+            errorMessage.innerHTML = showError(error.name, error.message);
+            closeError(container, errorMessage);
+            errorMessage.style.display = 'flex';
+        });
+
+    } catch(error) {
+        container.style.display = 'block';
+        errorMessage.innerHTML = showError(error.name, error.message);
+        closeError(container, errorMessage);
+        errorMessage.style.display = 'flex';
+    }
 }
 
-function fetchingDescription (choosenBook) {
+function fetchingDescription (choosenBook) { // The function provides the description of the choosen book
     const link = `https://openlibrary.org`+ choosenBook.key + '.json';
     fetch(link)
         .then(response => response.json())
@@ -75,7 +135,6 @@ function fetchingDescription (choosenBook) {
             bookDetails(choosenBook, bookDescription);
         }
         )};
-
 
 export {dataFetch, fetchingDescription};
 

@@ -1,5 +1,29 @@
+.table-pages-change-container {
+    width: 100%;
+    
+    
+    text-align: center;
+}
+
+#table-pages {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    
+}
+
+.back-button-container {
+    padding-bottom: 8px;
+}
+
+
+
+
+
+
 table {
-    padding: 0 100px 0 100px;
+    padding: 0 10px 0 10px;
 }
 
 .first-column-data {
@@ -17,15 +41,24 @@ table {
 .table-author {
     background-color: rgb(132, 42, 42);
     padding: 10px;
-    font-size: 20px;
+    font-size: 17px;
+    letter-spacing: 2px;
     color: white;  
 }
 
 th, td  {
     font-size: 15px;
     padding: 5px 0 5px 15px;
-    height: 20px;
+    max-height: 20px;
+    
 }
+
+td {
+    height: 5px;
+    max-height: 5px;
+    overflow: hidden;
+}
+
 
 td:hover {
     cursor: pointer;
@@ -34,7 +67,8 @@ td:hover {
 .table-title {
     background-color: rgb(132, 42, 42);
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 17px;
+    letter-spacing: 2px;
     color: white;   
 }
 
@@ -53,10 +87,6 @@ td:hover {
     width: 100%;
     display: flex;
     justify-content: center;
-}
-
-#table-pages {
-    margin-top: 30px;
 }
 
 .page-back {
@@ -87,4 +117,21 @@ td:hover {
 
 .page-forward:hover {
     cursor: pointer;
+}
+
+.back-button {
+    font-size: 15px;
+    color: rgb(132, 42, 42);
+    font-weight: 500;
+    padding: 3px 20px;
+    background-color: rgba(198, 111, 12, 0.1);
+    border: 2px solid rgb(132, 42, 42);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.back-button:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 20px rgb(132, 42, 42);
+    transition: 0.2s box-shadow;
 }
