@@ -43,7 +43,7 @@ module.exports = {
         static: path.resolve(__dirname, 'dist'),
         open: true,
         port: 8080,
-        // host: '192.168.1.93'
-        host: '127.0.0.1'
+        host: '192.168.1.90'
+        //host: '127.0.0.1'
     }
 }

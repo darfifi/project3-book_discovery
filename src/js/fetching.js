@@ -12,9 +12,8 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
     let searchingMessageBefore = document.getElementById('searching-message-before');
     let searchingMessageAfter = document.getElementById('searching-message-after');
     let errorMessage = document.getElementById('error-message');
-
-    // Errors management
-    try {
+    
+    try { // Errors management
         if (category === 'Search category') throw new ValidationError('You have to fill in with a valid category!');
         if (category.includes(' ')) throw new ValidationError('No spaces admitted in the search category!');
         if (category === ' ') throw new MissingCategory('No category specified!');
@@ -22,21 +21,23 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
         // Search link creation
         const link = `http://openlibrary.org/subjects/`+ category + '.json' + `?offset=${offset}` + '&' + 'limit=160';
 
+        // Code to display the search activity to the user
         container.style.display = 'block';
         if (offset == 0) {
             searchingMessageBefore.style.display = 'block';
-            loadingEffect('before');
+            loadingEffect('before'); 
         } else {
             searchingMessageAfter.style.display = 'block';
             loadingEffect('after');
         }
 
-        fetch(link)
+        fetch(link) 
             .then(response => {
                 if (!response.ok) {throw new Error('Error on request: ' + error.message)}
                 return response.json();
             })
             .then(obj => {
+                // Closing the modal window and its content
                 container.style.display = 'none';
                 searchingMessageBefore.style.display = 'none';
                 searchingMessageAfter.style.display = 'none';
@@ -59,7 +60,7 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
                         };
                         books.push(book);
                         progressiveNumber += 1;
-                    } else if (elem.authors.length > 1) {
+                    } else if (elem.authors.length > 1) { // A book can have more than one author
                         for (let i = 0; i < (elem.authors.length - 1); i++) {
                             const authors = [];
                             authors.push(elem.authors[i].name);
@@ -79,16 +80,9 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
                 dataSet = books.length / 160
                 if (dataSet > (worksNumber / 160)) {dataSet += 1};
 
-
-
-                // RIDONDANTE CON RIGA 45 - VERIFICA if (books.length == 0) throw new ValidationError('No books available under this category!');
-
-
-
-                
                 // Table visulization preparation
-                reduceImage('image-container');
-                createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex);
+                reduceImage('image-container'); // The main image is reduced to a line
+                createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex); // Function to create the table
 
             } catch(error) {
                 container.style.display = 'block';

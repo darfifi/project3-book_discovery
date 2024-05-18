@@ -4,9 +4,6 @@ import { mainpage } from "./index";
 
 function createTable(category, container, offset, dataSet, books, worksNumber, startIndex) {
 
-    
-
-
     // Determination of total number of pages
     let totalPages = Math.floor(worksNumber/16);
     if (worksNumber % 16) {totalPages +=1};
@@ -59,52 +56,44 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
 
     // inputbox and search button hiding, insertion of back button
 
-   
     document.getElementById('text-box').style.display = 'none';
     document.getElementById('search-button').style.display = 'none';
     document.getElementById('back-button-container').style.display = 'block';
 
-    // Table info creation and page changing setting buttons
-
-
-
-
-
-
-
-    // Determination of the progressive value of the last table row if it exists
+    
+    // Determination of the progressive value of the table page
     let actualTablePage;
 
     if (startIndex != 0) {
-        
-
         actualTablePage = +document.getElementById('first-column-data16')?.innerText / 16;
         if (actualTablePage == totalPages - 1) {
-            
-            
             if (isNaN(actualTablePage)) {
-                actualTablePage +=1;
+                actualTablePage +=1; // This is the last increment (The last page) when we obtain NaN on the actualTablePage calculation
             }    
         }
         // actualTablePage = +document.getElementById('first-column-data16').innerText / 16;
-    } else {actualTablePage = 1};
+    } else {
+        actualTablePage = 1}; // We are at the first page if startIndex = 0
 
 
     let pagesContainer = document.getElementById('table-pages');
 
-    pagesContainer.innerHTML = `
-        <span id="page-back" class="page-back">&lt   </span>` + 'Page   ' + `<span id = "initial-page" class="initial-page">${actualTablePage}</span>` + `   of    ${totalPages}   ` + `<span id="page-forward" class="page-forward">   &gt</span>`;
+    // Visualization of the table page number
+    pagesContainer.innerHTML = `<span id="page-back" class="page-back page-change-button">&lt   </span>` + 'Page   ' + `<span id = "initial-page" class="initial-page">${actualTablePage}</span>` + `   of    ${totalPages}   ` + `<span id="page-forward" class="page-forward page-change-button">   &gt</span>`;
 
     // Listener variables definition
     const forwardButton = document.getElementById('page-forward');
     const backButton = document.getElementById('page-back');
     let lastBookNumber;
         
-    // Listener on forward button
-    forwardButton.addEventListener('click', () => {
-        if (!(actualTablePage == totalPages)) { // Verify if we are on the last page of the collection
+    // Section to manage the pages change with the forward and back buttons
+
+    forwardButton.addEventListener('click', () => { // Listener on forward button
+        if (!(actualTablePage == totalPages)) { // Verify if we are on the last page of the collection - We have no effect on the button pressing
+
             let tableIndex = +document.getElementById('first-column-data16')?.innerText;
-            if (!(isNaN(tableIndex))) {
+            
+            if (!(isNaN(tableIndex))) { 
                 if ((tableIndex % 160) != 0) {
                     startIndex += 16;
                     createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex);
@@ -112,30 +101,49 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
                     pageCounter.innerText = `${tableIndex/16 + 1}`;
                 } else {
                     startIndex +=16;
-                    if (books.length > startIndex) { // Verify if data already exist in the array 
+                    if (books.length > startIndex) { // Verify if data already exist in the array else dataFetch function will be called again to load other results
                         createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex);
                     } else {
                         dataFetch(category, tableIndex, (tableIndex/160), books, startIndex);
                     }
-                }
+                } 
             }
-        }
-        
+        }   
     }); 
 
-    // Listener on back button 
-    backButton.addEventListener('click', () => {
+
+
+
+
+
+
+
+    
+    backButton.addEventListener('click', () => { // Listener on back button 
         let index;
         let tableIndex = +document.getElementById('first-column-data16')?.innerText;
         
         if (isNaN(tableIndex) && actualTablePage != 1) {
             tableIndex = worksNumber;
             index = tableIndex - (16 + (tableIndex % 16));
-        } else {index = tableIndex - 32}
-        if (!(index < 0)) { // Verify if the actual page is the first page
             createTable(category, 'table-container', offset, dataSet, books, worksNumber, index);
+        } else if (isNaN(tableIndex) && actualTablePage == 1) {
+
+        } else {
+            index = tableIndex - 32;
+            if (!(index < 0)) { // Verify if the actual page is the first page
+                createTable(category, 'table-container', offset, dataSet, books, worksNumber, index);
+            }
         }
     });
+
+
+
+
+
+
+
+
 
     // Listener on book selection
     table.addEventListener('click', (event) => {
@@ -150,7 +158,6 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
     });
 
     // Listener on button for returning to the initial page
-
     const buttontwo = document.getElementById('buttontwo');
     buttontwo.style.marginTop = "-30px";
     

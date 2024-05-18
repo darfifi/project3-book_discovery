@@ -7,6 +7,7 @@ import '../images/books-stack.png';
 import '../css/index.css';
 import '../css/index-other-sizes.css';
 import '../css/result-table.css';
+import '../css/result-table-other-sizes.css';
 import '../css/modal-window.css';
 import '../css/modal-window-other-sizes.css';
 
@@ -21,7 +22,8 @@ let imagesPath = [
 ];
 imageLoader(imagesPath);
 
-// Definizione dell'array di oggetti "sentence" e relativo caricamento in pagina chiamando la funzione relativa nel modulo sentences_loader.js
+// Definition of array of objects "sentence" and loading through the function sentencesLoader in the sentences_loader.js module
+
 const sentences = [
     {phrase: 'A reader lives a thousand lives before he dies. The man who never reads lives only one.', author: 'George R.R. Martin'},
     {phrase: `The more that you read, the more things you will know. The more that you learn, the more places you'll go.`, author: 'Dr. Seuss'},
@@ -34,21 +36,23 @@ const sentences = [
 ];
 sentencesLoader(sentences);
 
-// Selezione elementi textbox e button di avvio ricerca 
+// Selection of textbox and search button 
+
 const textBox = document.getElementById('text-box');
 const searchButton = document.getElementById('search-button');
 
-// Listener su textbox che fa sparire la scritta di default non appena la textbox viene selezionata
+// Listener on textbox to make the default "Search category" disappear when the textbox is engaged
+
 textBox.addEventListener('click', () => {
     if (textBox.value === 'Search category') {textBox.value = ''}
-    
 });
 
 // Listener on search button to start fetching.js
+
 searchButton.addEventListener('click', () => {
     let searchParameter = textBox.value;
     if (searchParameter != '') {
-        searchParameter = searchParameter.toLowerCase(); // To prevent errors in case the user writes search words with one or more capital letters 
+        searchParameter = searchParameter.toLowerCase(); // To prevent errors in case the user writes search words with one or more capital letters
         dataFetch(searchParameter, 0, 0, [], 0);
     }
 });
@@ -78,6 +82,12 @@ infoButton.addEventListener('mouseover', () => {
 infoButton.addEventListener('mouseout', () => {
     document.getElementById('info-container').style.display = 'none';
 })
+
+/* Listener on body area click
+
+let area = document.getElementsByTagName('body');
+
+area[0].addEventListener('click', () => {alert('Ciao!!')}) */
 
 export {mainpage};
 

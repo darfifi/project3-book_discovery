@@ -1,0 +1,47 @@
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
+    .table-author {
+        font-size: 16px;
+    }
+    
+    .table-title {
+        font-size: 16px;
+    }
+
+    th, td  {
+        font-size: 14px;   
+    }
+
+}
+
+@media screen and (min-width: 50px) and (max-width: 599px) {
+    
+    table {
+        /*padding: 0 40px 0 40px;*/
+        width: 90%;
+    }
+
+    .first-column-data {
+        width: 10px;
+    }
+    
+    .second-column-data {
+        width: 100px;
+    }
+    
+    .third-column-data {
+        width: 450px;
+    }
+
+    .table-author {
+        font-size: 15px;
+    }
+    
+    .table-title {
+        font-size: 15px;
+    }
+
+    th, td  {
+        font-size: 12px;   
+    }
+}

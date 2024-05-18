@@ -18,9 +18,8 @@ function imageLoader(path, timing = 9000) {
         if (i != (path.length-1)) { i++ }
         
         interval = setInterval(() => {
-            /* 
-               Check on the length of the array of images. In the event we have only one image a loop won't be generated.
-            */
+
+            // Check on the length of the array of images. In the event we have only one image a loop won't be generated.
             if (i === 0) { stop() } else {
                 container.removeChild(imageElement);
                 imageLoader(path, timing);

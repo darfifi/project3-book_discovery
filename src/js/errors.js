@@ -20,7 +20,7 @@ function showError(name, message) { // Function that manages the visualization o
       <br>
       <div class="error-row2">${message}</div>
   </div>
-  <div id="error-button" class="error-button">X</div>
+  <div id="error-button" class="error-button">&times;</div>
   `
 }
 

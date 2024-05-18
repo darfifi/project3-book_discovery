@@ -1,36 +1,30 @@
 
 /* Version for intermediate devices */
 
-@media screen and (min-width: 650px) and (max-width: 900px) {
+@media screen and (min-width: 600px) and (max-width: 900px) {
 
-    .upper-container {
-        padding: 10px;
+    .result-window {
+        max-width: 60%;
     }
     
-    .author, .title {
-        text-align: left;
-        padding: 50px auto;
-        margin: 5px;
-    }
-    
-    .author {
+    .author-name {
         font-size: 15px;
     }
 
     .title {
         font-size: 18px;
     }
-    
-    .result-window {
-        max-width: 60%;
-        margin: 150px auto;
-        padding: 15px;
-    }
-    
+
     .description-super-container {
         max-height: 200px;
         width: 100%;
         overflow-y: scroll; 
+    }
+
+    .description-text {
+        padding-left: 20px;
+        font-size: 15px;
+        margin-top: 35px;
     }
     
     .description-container {
@@ -42,19 +36,25 @@
         padding-right: 10px;
     }
     
-    .description-text {
-        padding-left: 20px;
-        font-size: 15px;
-        margin-top: 35px;
+    /* Section dedicated to errors visualization */
+        
+    .error-button {
+        font-size: 25px;
     }
-}
+    
+    .message {
+        width: 500px;
+        font-size: 20px;
+    }
+} 
 
 /* Version for mobile display */
 
-@media screen and (min-width: 100px) and (max-width: 649px) {
+@media screen and (min-width: 50px) and (max-width: 599px) {
 
-    .upper-container {
-        padding: 10px;
+    .result-window {
+        max-width: 80%;
+        margin: 40px auto;
     }
     
     .author, .title {
@@ -69,12 +69,6 @@
 
     .title {
         font-size: 15px;
-    }
-    
-    .result-window {
-        max-width: 80%;
-        margin: 150px auto;
-        padding: 15px;
     }
     
     .description-super-container {
@@ -101,6 +95,17 @@
     .searching-message {
         max-width: 70%;
         font-size: 18px;
+    }
+
+    /* Section dedicated to errors visualization */
+
+    .error-button {
+        font-size: 18px;
+    }
+    
+    .message {
+        max-width: 70%;
+        font-size: 15px;
     }
 }
 

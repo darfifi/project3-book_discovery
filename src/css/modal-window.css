@@ -6,30 +6,11 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 100;
-    overflow: auto;
-}
-
-.upper-container {
-    border: 1px solid rgb(95, 94, 94);
-    padding: 10px;
-    background-color: rgba(198, 111, 12);
-    box-shadow: 3px 3px 15px black;
-}
-
-.author-name, .title {
-    text-align: left;
-    padding: 50px auto;
-    margin: 5px;
-    color: white;
-}
-
-.author-name {
-    font-size: 20px;
+    z-index: 10;
 }
 
 .result-window {
-    max-width: 40%;
+    width: 600px;
     margin: 150px auto;
     padding: 35px;
     background-color: white;
@@ -38,27 +19,26 @@
     position: relative;
 }
 
+.upper-container {
+    border: 1px solid rgb(95, 94, 94);
+    padding: 10px 20px;
+    background-color: rgba(198, 111, 12);
+    box-shadow: 2px 2px 5px black;
+}
+
+.author-name, .title {
+    margin: 10px;
+    color: white;
+}
+
+.author-name {
+    font-size: 18px;
+}
+
 .description-super-container {
     max-height: 200px;
     width: 100%;
     overflow-y: scroll; 
-}
-
-
-.description-container {
-    text-align: justify;
-    line-height: 23px;
-    padding-bottom: 45px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.sfumato {
-    height: 50px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-    z-index: 100;
-    width: 100%;
-    transform: translate(0, -50px);
 }
 
 .description-text {
@@ -66,6 +46,20 @@
     font-size: 20px;
     margin-top: 35px;
     margin-bottom: 0;
+}
+
+.description-container {
+    text-align: justify;
+    line-height: 23px;
+    padding: 0 15px 45px 15px;
+}
+
+.nuanced {
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    z-index: 100;
+    width: 100%;
+    transform: translate(0, -50px);
 }
 
 .button-container {
@@ -85,9 +79,12 @@
 
 .closing-button:hover {
     background-color: rgba(198, 111, 12);
-    color: black;
+    color: white;
     transition: all 0.5s;
 }
+
+
+/* Section dedicated to errors visualization */
 
 .error-button {
     font-size: 25px;
@@ -96,9 +93,8 @@
     cursor: pointer;
 }
 
-
 .message {
-    max-width: 40%;
+    width: 500px;
     padding: 25px;
     margin: 200px auto;
     background-color: white;

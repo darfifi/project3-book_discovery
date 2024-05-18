@@ -65,8 +65,8 @@
         <div id="back-button-container" class="back-button-container">
             <button type="button" class="back-button" id="buttontwo">New search</button>
         </div>
-        <div id="table-pages">
-            <!-- Here will be inserted the table pages -->
+        <div id="table-pages" class="page-changer">
+            <!-- Here will be inserted the table pages change buttons -->
         </div> 
     </div>
         
@@ -74,7 +74,9 @@
     <div id="table-container">
         <!-- Here will be inserted the table with results -->
     </div>
-       
+    
+    <!-- The following section is created for the visualization of errors and results of searches -->
+    
     <div id="modal-window-container" class="modal-window-container">
         <div id="error-message" class="error-message message" style="display: none;"></div>
         <div id="searching-message-before" class="searching-message message" style="display: none;">Searching results<span id="point1-before">.</span><span id="point2-before">.</span><span id="point3-before">.</span></div>
@@ -90,7 +92,7 @@
             <div id="description-super-container" class="description-super-container">
                 <div id="description-container" class="description-container"> <!-- Here will be inserted book's description --> </div>
             </div>
-            <div id="sfumato" class="sfumato"></div>
+            <div id="sfumato" class="nuanced"></div>
             <div class="button-container">
                 <button id="closing-button" class="closing-button">Close</button>
             </div>

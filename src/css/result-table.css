@@ -1,41 +1,38 @@
+.back-button-container {
+    display: none;
+    padding-bottom: 10px;
+}
+
 .table-pages-change-container {
     width: 100%;
-    
-    
     text-align: center;
 }
 
-#table-pages {
-    display: block;
-    width: 100%;
-    height: auto;
+.page-changer { 
     margin-bottom: 10px;
-    
 }
 
-.back-button-container {
-    padding-bottom: 8px;
+#table-container {  
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
-
-
-
-
-
 
 table {
-    padding: 0 10px 0 10px;
+    /*padding: 0 40px 0 40px;*/
+    width: 75%;
 }
 
 .first-column-data {
-    width: 20px;
+    width: 15px;
 }
 
 .second-column-data {
-    width: 250px;
+    width: 200px;
 }
 
 .third-column-data {
-    width: 700px;
+    width: 450px;
 }
 
 .table-author {
@@ -44,24 +41,6 @@ table {
     font-size: 17px;
     letter-spacing: 2px;
     color: white;  
-}
-
-th, td  {
-    font-size: 15px;
-    padding: 5px 0 5px 15px;
-    max-height: 20px;
-    
-}
-
-td {
-    height: 5px;
-    max-height: 5px;
-    overflow: hidden;
-}
-
-
-td:hover {
-    cursor: pointer;
 }
 
 .table-title {
@@ -77,46 +56,21 @@ td:hover {
     color: white;
 }
 
+th, td  {
+    font-size: 15px;
+    padding: 4px 12px 4px 12px;
+}
+
+td:hover {
+    cursor: pointer;
+    color: rgb(132, 42, 42);
+    font-weight: bold;
+}
+
 .odd {
     background-color: rgba(198, 111, 12, 0.1);
     border-bottom: 1px solid black;
     border-top: 1px solid black;
-}
-
-#table-container {  
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.page-back {
-    background-color: rgba(132, 42, 42, 0.5);
-    width: 20px;
-    height: 20px;
-    font-weight: 900;
-    margin-right: 20px;
-    border: 1px solid black;
-    display: inline-block;
-    text-align: center;
-}
-
-.page-back:hover {
-    cursor: pointer;
-}
-
-.page-forward {
-    background-color: rgba(132, 42, 42, 0.5);
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    text-align: center;
-    border: 1px solid black;
-    font-weight: 900;
-    margin-left: 20px;
-}
-
-.page-forward:hover {
-    cursor: pointer;
 }
 
 .back-button {
@@ -135,3 +89,29 @@ td:hover {
     box-shadow: 2px 2px 20px rgb(132, 42, 42);
     transition: 0.2s box-shadow;
 }
+
+.page-change-button {
+    background-color: rgba(132, 42, 42, 0.5);
+    width: 20px;
+    height: 20px;
+    font-weight: 900;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+}
+
+.page-change-button:hover {
+    cursor: pointer;
+}
+
+.page-back {
+    margin-right: 20px;   
+}
+
+.page-forward { 
+    margin-left: 20px;
+}
+
+
+
+
