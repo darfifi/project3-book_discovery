@@ -3,7 +3,6 @@ import {imageLoader} from "./images_loader.js";
 import {sentencesLoader} from "./sentences_loader.js";
 import {dataFetch} from "./fetching.js";
 import myPicture from '../images/library.js';
-import '../images/books-stack.png';
 import '../css/index.css';
 import '../css/index-other-sizes.css';
 import '../css/result-table.css';
@@ -46,6 +45,18 @@ const searchButton = document.getElementById('search-button');
 textBox.addEventListener('click', () => {
     if (textBox.value === 'Search category') {textBox.value = ''}
 });
+
+// Listener on Input Box to start a search with Enter Button pressing - Reserved only for Mobile equipments 
+
+textBox.addEventListener('keydown', (event) => {
+    if(event.code == 'Enter' && window.innerWidth < 599) {
+        let searchParameter = textBox.value;
+        if (searchParameter != '') {
+            searchParameter = searchParameter.toLowerCase(); // To prevent errors in case the user writes search words with one or more capital letters
+            dataFetch(searchParameter, 0, 0, [], 0);
+        }
+    }
+})
 
 // Listener on search button to start fetching.js
 

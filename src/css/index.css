@@ -30,7 +30,6 @@ body {
     width: 100%;
     padding-top: 30px;
     padding-left: 30px;
-    
 }
 
 .logo {
@@ -87,31 +86,6 @@ body {
     border-radius: 20px;
 }
 
-.text-container {
-    padding-left: 5px;
-    width: 90%;
-    padding-top: 0;
-    margin-top: 0;
-}
-
-.author {
-    color: black;
-    font-size: 15px;
-}
-
-.image-container {
-    overflow: hidden;
-    width: 1200px;
-    height: auto;
-    /*max-height: 600px;*/
-    margin-top: 25px;
-}
-
-.main-image {
-    width: 100%;
-    animation: mymove 8s linear 0s 1 normal forwards;
-}
-
 .info-container {
     display: none;
     border: 1px solid rgb(198, 111, 12);
@@ -143,6 +117,33 @@ body {
     font-size: 17px;
 }
 
+.text-container {
+    padding-left: 5px;
+    width: 90%;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.author {
+    color: black;
+    font-size: 15px;
+}
+
+.image-container {
+    overflow: hidden;
+    width: 1200px;
+    height: auto;
+    /*max-height: 600px;*/
+    margin-top: 25px;
+}
+
+.main-image {
+    width: 100%;
+    animation: mymove 8s linear 0s 1 normal forwards;
+}
+
+
+
 .search-field-container {
     margin-top: 50px;
     width: 1000px;
@@ -157,8 +158,8 @@ body {
     border-radius: 30px;
     border: 1px solid rgb(198, 111, 12);
     margin-right: 30px;
-    width: 40%;
-    height: 30px;
+    width: 450px;
+    height: 50px;
     font-size: 18px;
     font-weight: 400;
     color: rgb(198, 111, 12);

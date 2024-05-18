@@ -21,19 +21,18 @@
         font-size: 12px;
     }
 
-    .info-icon {
+    .info-icon, .info-cover {
         width: 40px;
         height: 40px;
     }
 
     .info-cover {
-        width: 40px;
-        height: 40px;
         border-radius: 13px;
     }
 
     .search-field {
-        height: 20px;
+        width: 50%;
+        height: 40px;
         font-size: 14px;
     }
 
@@ -46,11 +45,14 @@
         width: 20px;
         height: 20px;
     }
-
 }
 
 @media screen and (min-width: 50px) and (max-width: 599px) {
     
+    .top-container {
+        padding-left: 20px;
+    }
+
     .logo {
         width: 90px;
         height: 90px;
@@ -60,35 +62,10 @@
         font-size: 15px; 
     }
 
-    .text-container {
-        width: 84%;
-    }
-
-    .text-container p {
-        font-size: 12px;
-    }
-
-    .text-container p span {
-       font-size: 10px; 
-    }
-
-    .info-icon {
+    .info-icon, .info-cover {
         width: 25px;
         height: 25px;
     }
-
-    .info-cover {
-        width: 25px;
-        height: 25px;
-    }
-
-
-
-
-
-
-
-
 
     .info-container {
         width: 250px;
@@ -104,59 +81,31 @@
         font-size: 14px;
     }
 
+    .text-container {
+        width: 84%;
+    }
 
+    .text-container p {
+        font-size: 12px;
+    }
 
-
-
-
+    .text-container p span {
+       font-size: 10px; 
+    }
 
     .search-field-container {
         margin-top: 30px;
     }
 
     .search-field {
-        width: 30%;
-        height: 17px;
+        width: 90%;
+        height: 35px;
         font-size: 11px;
         padding-left: 18px;
-    }
-
-    .search-field:focus {
-        height: 17px;
-        font-size: 11px;
-        outline: 2px solid rgba(198, 111, 12);
-    }
-
-    .info {
-        margin-right: -20px;
-    }
-
-    .info {
-        font-size: 10px;
-        padding-right: 38px;
-    }
-
-    .top-container {
-        padding-left: 20px;
-    }
-
-    .text {
-        font-size: 13px;
-    }
-
-    .button {
-        padding: 0 20px 0 20px;
+        margin-right: 0;
     }
 
     .search-button {
-        width: 45px;
-        border-radius: 30px;
+        display: none;  
     }
-
-    .search-button img {
-        width: 16px;
-        height: 16px;
-    }
-
-
 }
