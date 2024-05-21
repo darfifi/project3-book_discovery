@@ -109,16 +109,8 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
                 } 
             }
         }   
-    }); 
+    })
 
-
-
-
-
-
-
-
-    
     backButton.addEventListener('click', () => { // Listener on back button 
         let index;
         let tableIndex = +document.getElementById('first-column-data16')?.innerText;
@@ -137,24 +129,20 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
         }
     });
 
-
-
-
-
-
-
-
-
     // Listener on book selection
+
     table.addEventListener('click', (event) => {
         // data collecting on clicked row
         let clickedElement = event.target;
         let parent = clickedElement.parentNode;
         let bookProgressiveNumber = +parent.firstElementChild.innerText-1;
-        let choosenBook = books[bookProgressiveNumber];
+        if (bookProgressiveNumber) { // Have to verify if user accidentally clicked on table head  
+            let choosenBook = books[bookProgressiveNumber];
         
-        // call fetching description
-        fetchingDescription(choosenBook);
+            // call fetching description
+            fetchingDescription(choosenBook);
+        }
+        
     });
 
     // Listener on button for returning to the initial page

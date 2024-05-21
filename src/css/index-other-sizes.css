@@ -6,7 +6,7 @@
     }
 
     .banner {
-        font-size: 25px;
+        font-size: 27px;
     }
 
     .text-container {
@@ -14,11 +14,11 @@
     }
 
     .text-container p {
-        font-size: 15px;
+        font-size: 18px;
     }
 
     .text-container p span {
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .info-icon, .info-cover {
@@ -32,8 +32,6 @@
 
     .search-field {
         width: 50%;
-        height: 40px;
-        font-size: 14px;
     }
 
     .search-button {
@@ -48,23 +46,24 @@
 }
 
 @media screen and (min-width: 50px) and (max-width: 599px) {
-    
+
     .top-container {
+        display: block;
         padding-left: 20px;
     }
 
     .logo {
-        width: 90px;
-        height: 90px;
+        width: 110px;
+        height: 110px;
     }
     
     .banner {
-        font-size: 15px; 
+        font-size: 24px; 
     }
 
     .info-icon, .info-cover {
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
     }
 
     .info-container {
@@ -83,14 +82,15 @@
 
     .text-container {
         width: 84%;
+        height: 50px;
     }
 
     .text-container p {
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .text-container p span {
-       font-size: 10px; 
+       font-size: 13px; 
     }
 
     .search-field-container {
@@ -99,8 +99,6 @@
 
     .search-field {
         width: 90%;
-        height: 35px;
-        font-size: 11px;
         padding-left: 18px;
         margin-right: 0;
     }

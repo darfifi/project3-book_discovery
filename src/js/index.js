@@ -13,6 +13,9 @@ import '../css/modal-window-other-sizes.css';
 
 const mainpage = document.body.innerHTML; // Saving the original HTML structure
 
+document.body.style.zoom = '0.8';
+
+
 const image = myPicture();
 let index = image.lastIndexOf('/');
 const percorso = image.substring(index);

@@ -28,8 +28,7 @@ module.exports = {
             
             {
                 test: /\.(ico|jpg|png|jpeg)$/i,
-                type: 'asset/resource'
-                // use: ['url-loader', 'file-loader']
+                type: 'asset/resource',
             },
             
             {

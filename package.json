@@ -16,10 +16,14 @@
     "file-loader": "^6.2.0",
     "html-loader": "^5.0.0",
     "html-webpack-plugin": "^5.6.0",
+    "img-optimize-loader": "^1.0.7",
     "style-loader": "^3.3.4",
     "url-loader": "^4.1.1",
     "webpack": "^5.90.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.1"
+  },
+  "dependencies": {
+    "firebase": "^10.12.0"
   }
 }

@@ -5,6 +5,7 @@ import { bookDetails } from "./book-details";
 import {loadingEffect} from "./loading-effect.js";
 import {MissingCategory, ValidationError, showError, closeError} from "./errors.js";
 
+
 function dataFetch(category, offset, dataSet, books, startIndex) {
     
     // Elements preparation
@@ -19,7 +20,7 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
         if (category === ' ') throw new MissingCategory('No category specified!');
     
         // Search link creation
-        const link = `http://openlibrary.org/subjects/`+ category + '.json' + `?offset=${offset}` + '&' + 'limit=160';
+        const link = `https://openlibrary.org/subjects/`+ category + '.json' + `?offset=${offset}` + '&' + 'limit=160';
 
         // Code to display the search activity to the user
         container.style.display = 'block';
@@ -33,6 +34,7 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
 
         fetch(link) 
             .then(response => {
+                alert(response.status);
                 if (!response.ok) {throw new Error('Error on request: ' + error.message)}
                 return response.json();
             })
