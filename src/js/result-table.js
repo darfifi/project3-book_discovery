@@ -1,8 +1,8 @@
 
-import { dataFetch, fetchingDescription } from "./fetching";
+import { fetchingDescription } from "./fetching";
 import { mainpage } from "./index";
 
-function createTable(category, container, offset, dataSet, books, worksNumber, startIndex) {
+export default function createTable(category, container, offset, dataSet, books, worksNumber, startIndex) {
 
     // Determination of total number of pages
     let totalPages = Math.floor(worksNumber/16);
@@ -104,7 +104,11 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
                     if (books.length > startIndex) { // Verify if data already exist in the array else dataFetch function will be called again to load other results
                         createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex);
                     } else {
-                        dataFetch(category, tableIndex, (tableIndex/160), books, startIndex);
+                        import('.//fetching')
+                        .then(module => {
+                            const dataFetch = module.default;
+                            dataFetch(category, tableIndex, (tableIndex/160), books, startIndex);
+                        })
                     }
                 } 
             }
@@ -160,6 +164,5 @@ function createTable(category, container, offset, dataSet, books, worksNumber, s
     })
 }
 
-export {createTable};
 
 

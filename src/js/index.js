@@ -1,7 +1,6 @@
 
 import {imageLoader} from "./images_loader.js";
 import {sentencesLoader} from "./sentences_loader.js";
-import {dataFetch} from "./fetching.js";
 import myPicture from '../images/library.js';
 import '../css/index.css';
 import '../css/index-other-sizes.css';
@@ -43,11 +42,7 @@ sentencesLoader(sentences);
 const textBox = document.getElementById('text-box');
 const searchButton = document.getElementById('search-button');
 
-// Listener on textbox to make the default "Search category" disappear when the textbox is engaged
 
-textBox.addEventListener('click', () => {
-    if (textBox.value === 'Search category') {textBox.value = ''}
-});
 
 // Listener on Input Box to start a search with Enter Button pressing - Reserved only for Mobile equipments 
 
@@ -56,7 +51,11 @@ textBox.addEventListener('keydown', (event) => {
         let searchParameter = textBox.value;
         if (searchParameter != '') {
             searchParameter = searchParameter.toLowerCase(); // To prevent errors in case the user writes search words with one or more capital letters
-            dataFetch(searchParameter, 0, 0, [], 0);
+            import('.//fetching')
+            .then(module => {
+                const dataFetch = module.default;
+                dataFetch(searchParameter, 0, 0, [], 0);
+            })
         }
     }
 })
@@ -67,7 +66,14 @@ searchButton.addEventListener('click', () => {
     let searchParameter = textBox.value;
     if (searchParameter != '') {
         searchParameter = searchParameter.toLowerCase(); // To prevent errors in case the user writes search words with one or more capital letters
-        dataFetch(searchParameter, 0, 0, [], 0);
+
+        import('.//fetching')
+        .then(module => {
+            const dataFetch = module.default;
+            dataFetch(searchParameter, 0, 0, [], 0);
+        }) 
+
+        //dataFetch(searchParameter, 0, 0, [], 0);
     }
 });
 

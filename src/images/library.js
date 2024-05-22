@@ -1,5 +1,5 @@
 
-import library from './library.png';
+import library from './library-1.webp';
 
 function picture() {
     const immagine = new Image();

@@ -1,12 +1,11 @@
 
 import {reduceImage} from "./images_loader.js";
-import {createTable} from "./result-table.js";
-import { bookDetails } from "./book-details";
+import {bookDetails} from "./book-details";
 import {loadingEffect} from "./loading-effect.js";
 import {MissingCategory, ValidationError, showError, closeError} from "./errors.js";
 
 
-function dataFetch(category, offset, dataSet, books, startIndex) {
+export default function dataFetch(category, offset, dataSet, books, startIndex) {
     
     // Elements preparation
     let container = document.getElementById('modal-window-container');
@@ -84,7 +83,12 @@ function dataFetch(category, offset, dataSet, books, startIndex) {
 
                 // Table visulization preparation
                 reduceImage('image-container'); // The main image is reduced to a line
-                createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex); // Function to create the table
+                import('.//result-table')
+                .then(module => {
+                    const createTable = module.default;
+                    createTable(category, 'table-container', offset, dataSet, books, worksNumber, startIndex); // Function to create the table
+                })
+                
 
             } catch(error) {
                 container.style.display = 'block';
@@ -132,7 +136,7 @@ function fetchingDescription (choosenBook) { // The function provides the descri
         }
         )};
 
-export {dataFetch, fetchingDescription};
+export {fetchingDescription};
 
 
 
