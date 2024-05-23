@@ -1,6 +1,7 @@
 --- THE BOOK DISCOVERY ---
 
-[main image](./src/images/library-1.webp)
+![Alt main](./src/images/library.png)
+
 
 - STRUCTURE -
 
