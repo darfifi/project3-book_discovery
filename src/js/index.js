@@ -60,6 +60,18 @@ textBox.addEventListener('keydown', (event) => {
     }
 })
 
+textBox.addEventListener('search', () => {
+        let searchParameter = textBox.value;
+        if (searchParameter != '') {
+            searchParameter = searchParameter.toLowerCase(); // To prevent errors in case the user writes search words with one or more capital letters
+            import('.//fetching')
+            .then(module => {
+                const dataFetch = module.default;
+                dataFetch(searchParameter, 0, 0, [], 0);
+            })
+        }
+})
+
 // Listener on search button to start fetching.js
 
 searchButton.addEventListener('click', () => {

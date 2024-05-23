@@ -33,7 +33,6 @@ export default function dataFetch(category, offset, dataSet, books, startIndex) 
 
         fetch(link) 
             .then(response => {
-                alert(response.status);
                 if (!response.ok) {throw new Error('Error on request: ' + error.message)}
                 return response.json();
             })
