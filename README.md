@@ -1,5 +1,7 @@
 --- THE BOOK DISCOVERY ---
 
+[main image](./src/images/library-1.webp)
+
 - STRUCTURE -
 
 This is a web application entirely developed using HTML, CSS and JS and with the support of Webpack.
@@ -43,4 +45,8 @@ The result table is part itself of the main page, when the table is ready to be 
 give space to the table that has to be shown. 
 
 - INTERACTIONS WITH THE RESULT TABLE -
+
+Once the user can read the results in the result table he can click on a row, the column is indifferent, and so the app starts a search for the description
+of the book selected. At this stage a modal window will appear with the box in which lays the result of the search.
+
 
