@@ -140,7 +140,7 @@ export default function createTable(category, container, offset, dataSet, books,
         let clickedElement = event.target;
         let parent = clickedElement.parentNode;
         let bookProgressiveNumber = +parent.firstElementChild.innerText-1;
-        if (bookProgressiveNumber) { // Have to verify if user accidentally clicked on table head  
+        if (bookProgressiveNumber || bookProgressiveNumber === 0) { // Have to verify if user accidentally clicked on table head  
             let choosenBook = books[bookProgressiveNumber];
         
             // call fetching description

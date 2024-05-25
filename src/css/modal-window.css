@@ -10,29 +10,37 @@
 }
 
 .result-window {
-    width: 600px;
+    width: 750px;
     margin: 150px auto;
     padding: 35px;
     background-color: white;
     border: 1px solid rgba(198, 111, 12);
+    border-radius: 15px;
     box-shadow: 10px 10px 30px rgb(0, 0, 0);
-    position: relative;
 }
 
 .upper-container {
     border: 1px solid rgb(95, 94, 94);
+    border-radius: 8px;
     padding: 10px 20px;
-    background-color: rgba(198, 111, 12);
+    background-color: rgb(246, 220, 177);
     box-shadow: 2px 2px 5px black;
 }
 
 .author-name, .title {
-    margin: 10px;
-    color: white;
+    margin: 5px;
+    color: rgb(198, 111, 12);
 }
 
 .author-name {
     font-size: 18px;
+}
+
+.description-text {
+    padding-left: 20px;
+    font-size: 22px;
+    margin-top: 35px;
+    margin-bottom: 0;
 }
 
 .description-super-container {
@@ -41,16 +49,11 @@
     overflow-y: scroll; 
 }
 
-.description-text {
-    padding-left: 20px;
-    font-size: 20px;
-    margin-top: 35px;
-    margin-bottom: 0;
-}
-
 .description-container {
+    line-height: 26px;
+    font-size: 18px;
+    letter-spacing: 1px;
     text-align: justify;
-    line-height: 23px;
     padding: 0 15px 45px 15px;
 }
 
@@ -72,6 +75,7 @@
     font-size: 13px;
     font-weight: 500;
     border: 2px solid rgba(198, 111, 12);
+    border-radius: 5px;
     background-color: white;
     color: rgba(198, 111, 12);
     opacity: 90%;
@@ -80,7 +84,7 @@
 .closing-button:hover {
     background-color: rgba(198, 111, 12);
     color: white;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 

@@ -4,7 +4,8 @@
 @media screen and (min-width: 600px) and (max-width: 900px) {
 
     .result-window {
-        max-width: 60%;
+        width: 60%;
+        margin: 50px auto;
     }
     
     .author-name {
@@ -15,25 +16,13 @@
         font-size: 18px;
     }
 
-    .description-super-container {
-        max-height: 200px;
-        width: 100%;
-        overflow-y: scroll; 
-    }
-
     .description-text {
-        padding-left: 20px;
-        font-size: 15px;
-        margin-top: 35px;
+        font-size: 18px;
     }
     
     .description-container {
-        width: 90%;
         line-height: 23px;
-        font-size: 13px;
-        padding-bottom: 45px;
-        padding-left: 10px;
-        padding-right: 10px;
+        font-size: 15px;    
     }
     
     /* Section dedicated to errors visualization */
@@ -53,17 +42,11 @@
 @media screen and (min-width: 50px) and (max-width: 599px) {
 
     .result-window {
-        max-width: 80%;
-        margin: 40px auto;
+        width: 80%;
+        margin: 30px auto;
     }
     
-    .author, .title {
-        text-align: left;
-        padding: 50px auto;
-        margin: 5px;
-    }
-    
-    .author {
+    .author-name {
         font-size: 13px;
     }
 
@@ -71,27 +54,15 @@
         font-size: 15px;
     }
     
-    .description-super-container {
-        max-height: 200px;
-        width: 100%;
-        overflow-y: scroll; 
+    .description-text {
+        font-size: 16px;
     }
 
     .description-container {
-        width: 90%;
-        line-height: 23px;
-        font-size: 13px;
-        padding-bottom: 45px;
-        padding-left: 10px;
-        padding-right: 10px;
+        line-height: 20px;
+        font-size: 14px;  
     }
     
-    .description-text {
-        padding-left: 15px;
-        font-size: 15px;
-        margin-top: 35px;
-    }
-
     .searching-message {
         max-width: 70%;
         font-size: 18px;
