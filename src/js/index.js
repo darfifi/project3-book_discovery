@@ -17,9 +17,9 @@ document.body.style.zoom = '0.8';
 
 const image = myPicture();
 let index = image.lastIndexOf('/');
-const percorso = image.substring(index);
+const path = image.substring(index);
 let imagesPath = [
-    `.${percorso}`    
+    `.${path}`    
 ];
 imageLoader(imagesPath);
 
@@ -42,8 +42,6 @@ sentencesLoader(sentences);
 const textBox = document.getElementById('text-box');
 const searchButton = document.getElementById('search-button');
 
-
-
 // Listener on Input Box to start a search with Enter Button pressing - Reserved only for Mobile equipments 
 
 textBox.addEventListener('keydown', (event) => {
@@ -51,7 +49,7 @@ textBox.addEventListener('keydown', (event) => {
         let searchParameter = textBox.value;
         if (searchParameter != '') {
             searchParameter = searchParameter.toLowerCase(); // To prevent errors in case the user writes search words with one or more capital letters
-            import('.//fetching')
+            import('.//fetching') // Dynamic import of a function in order to gurantee loading of resouces when necessary
             .then(module => {
                 const dataFetch = module.default;
                 dataFetch(searchParameter, 0, 0, [], 0);
@@ -60,10 +58,12 @@ textBox.addEventListener('keydown', (event) => {
     }
 })
 
+// Listener used for mobile phones with Android OS 
+
 textBox.addEventListener('search', () => {
         let searchParameter = textBox.value;
         if (searchParameter != '') {
-            searchParameter = searchParameter.toLowerCase(); // To prevent errors in case the user writes search words with one or more capital letters
+            searchParameter = searchParameter.toLowerCase();
             import('.//fetching')
             .then(module => {
                 const dataFetch = module.default;
@@ -84,8 +84,6 @@ searchButton.addEventListener('click', () => {
             const dataFetch = module.default;
             dataFetch(searchParameter, 0, 0, [], 0);
         }) 
-
-        //dataFetch(searchParameter, 0, 0, [], 0);
     }
 });
 
@@ -115,11 +113,6 @@ infoButton.addEventListener('mouseout', () => {
     document.getElementById('info-container').style.display = 'none';
 })
 
-/* Listener on body area click
-
-let area = document.getElementsByTagName('body');
-
-area[0].addEventListener('click', () => {alert('Ciao!!')}) */
 
 export {mainpage};
 

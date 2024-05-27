@@ -1,8 +1,12 @@
 --- THE BOOK DISCOVERY ---
 
-- STRUCTURE 
-
 This is a web application entirely developed using HTML, CSS and JS and with the support of Webpack.
+
+You can run and try the application at the following link:
+
+https://thebookdiscovery-4aef9.web.app
+
+- STRUCTURE 
 
 The folder /src is the main folder of the project where we can find the file index.html, the main and unique page where the appllication runs 
 and three other sub-folders:
@@ -11,7 +15,7 @@ and three other sub-folders:
       The /css folder contains more than a unique file because readability reasons, so we find a couple of files (index.css and index-other-sizes.css) 
       which are responsible for the styling of the first visualization of the app when we enter it. 
       It is provided a responsive design for the optimization of visualization on various equipments.
-      Another couple of files(result-table.css and result-table-other-sizes.css) are responsible for the styling of the results-table visualization 
+      Another couple of files(result-table.css and result-table-other-sizes.css) is responsible for the styling of the results-table visualization 
       and the last couple of files (modal-window.css and modal-window-other-sizes.css) are responsible for the styling of the visulization of errors 
       messages and decriptions of a selected book. 
 
